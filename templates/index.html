@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitter API App (OAuth 1.0a)</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <h2>Twitter API Interface (OAuth 1.0a)</h2>
+
+  <!-- Login Button -->
+  <a href="/login"><button>Login with Twitter</button></a>
+
+  <!-- Tweet Posting -->
+  <h3>Post a Tweet</h3>
+  <textarea id="tweet-text" placeholder="Write your tweet here..."></textarea><br>
+  <button onclick="postTweet()">Post Tweet</button>
+
+  <!-- Log Viewer (optional, if you add logging) -->
+  <h3>Application Logs</h3>
+  <div id="log-container">Logs will appear here.</div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
