@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Bot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Twitter Bot App</h1>
+
+        <form id="createPostForm" class="form">
+            <label for="topic" class="label">Enter Topic:</label>
+            <input type="text" id="topic" name="topic" class="input" placeholder="Enter a topic..." required>
+            <button type="submit" class="btn">Create Post</button>
+        </form>
+
+        <div id="response" class="response"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
