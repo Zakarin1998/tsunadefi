@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Twitter API App (OAuth 1.0a)</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Bot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-  <h2>Twitter API Interface (OAuth 1.0a)</h2>
+    <div class="container">
+        <h1>Twitter Bot App</h1>
 
-  <!-- Login Button -->
-  <a href="/login"><button>Login with Twitter</button></a>
+        <form id="createPostForm" class="form">
+            <label for="topic" class="label">Enter Topic:</label>
+            <input type="text" id="topic" name="topic" class="input" placeholder="Enter a topic..." required>
+            <button type="submit" class="btn">Create Post</button>
+        </form>
 
-  <!-- Tweet Posting -->
-  <h3>Post a Tweet</h3>
-  <textarea id="tweet-text" placeholder="Write your tweet here..."></textarea><br>
-  <button onclick="postTweet()">Post Tweet</button>
+        <div id="response" class="response"></div>
+    </div>
 
-  <!-- Log Viewer (optional, if you add logging) -->
-  <h3>Application Logs</h3>
-  <div id="log-container">Logs will appear here.</div>
-
-  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

@@ -1,24 +1,21 @@
-function postTweet() {
-    let tweetText = document.getElementById("tweet-text").value;
-    if (!tweetText) {
-        alert("Please enter a tweet!");
-        return;
-    }
-    fetch('/tweet', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: tweetText })
+document.getElementById("createPostForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const topic = document.getElementById("topic").value;
+
+    fetch("/create_post", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ topic: topic })
     })
-    .then(response => response.text())
-    .then(data => alert(data))
-    .catch(error => console.error("Error:", error));
-}
-
-function fetchLogs() {
-    fetch('/logs')
-    .then(response => response.text())
-    .then(data => document.getElementById("log-container").innerText = data)
-    .catch(error => console.error("Error loading logs:", error));
-}
-
-fetchLogs();  // Load logs on page load
+    .then(response => response.json())
+    .then(data => {
+        const message = data.message || data.error;
+        document.getElementById("response").textContent = message;
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
+});
